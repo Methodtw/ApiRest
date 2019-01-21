@@ -13,6 +13,7 @@ public class Blog {
 	private int id;
     private String title;
     private String content;
+    private String author;
 
     public Blog() {  }
 
@@ -37,6 +38,14 @@ public class Blog {
     public void setTitle(String title) {
         this.title = title;
     }
+    
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public String getContent() {
         return content;
@@ -51,6 +60,7 @@ public class Blog {
         return "Blog{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
                 ", content='" + content + '\'' +
                 '}';
     }
