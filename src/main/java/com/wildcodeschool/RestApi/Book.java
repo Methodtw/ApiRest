@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Blog {
+public class Book {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,9 @@ public class Blog {
     private String description;
     private String author;
 
-    public Blog() {  }
+    public Book() {  }
 
-    public Blog(int id, String title, String content) {
+    public Book(int id, String title, String content) {
         this.setId(id);
         this.setTitle(title);
         this.setDescription(description);

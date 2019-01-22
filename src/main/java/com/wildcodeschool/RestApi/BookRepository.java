@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BlogRepository extends JpaRepository<Blog, Integer> {
+public interface BookRepository extends JpaRepository<Book, Integer> {
 
     // custom query to search to blog post by title or content
-    List<Blog> findByTitleContainingOrDescriptionContaining(String text, String textAgain);
+    List<Book> findByTitleContainingOrDescriptionContaining(String text, String textAgain);
 }
