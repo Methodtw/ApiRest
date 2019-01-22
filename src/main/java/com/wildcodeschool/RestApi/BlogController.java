@@ -1,6 +1,7 @@
 package com.wildcodeschool.RestApi;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class BlogController {
     @PostMapping("/blogs/search")
     public List<Blog> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");
-        return blogRespository.findByTitleContainingOrContentContaining(searchTerm, searchTerm);
+        return blogRespository.findByTitleContainingOrDescriptionContaining(searchTerm, searchTerm);
     }
 
     @PostMapping("/blogs")
@@ -42,10 +43,17 @@ public class BlogController {
 
     @PutMapping("/blogs/{id}")
     public Blog update(@PathVariable int id, @RequestBody Blog blog){
-        // getting blog
+		// getting blog
         Blog blogToUpdate = blogRespository.findById(id).get();
-        blogToUpdate.setTitle(blog.getTitle());
-        blogToUpdate.setContent(blog.getContent());
+        if(blog.getTitle() != null) {
+            blogToUpdate.setTitle(blog.getTitle());
+        }
+        if(blog.getAuthor() != null) {
+            blogToUpdate.setAuthor(blog.getAuthor());
+        }
+        if(blog.getDescription() != null) {
+            blogToUpdate.setDescription(blog.getDescription());
+        }
         return blogRespository.save(blogToUpdate);
     }
 

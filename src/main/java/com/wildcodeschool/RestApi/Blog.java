@@ -12,7 +12,7 @@ public class Blog {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
     private String title;
-    private String content;
+    private String description;
     private String author;
 
     public Blog() {  }
@@ -20,7 +20,8 @@ public class Blog {
     public Blog(int id, String title, String content) {
         this.setId(id);
         this.setTitle(title);
-        this.setContent(content);
+        this.setDescription(description);
+        this.setAuthor(author);
     }
 
     public int getId() {
@@ -47,12 +48,12 @@ public class Blog {
         this.author = author;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -61,7 +62,7 @@ public class Blog {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", content='" + content + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
